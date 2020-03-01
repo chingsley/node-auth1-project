@@ -19,7 +19,6 @@ const registerUser = async (req, res, next) => {
 const loginUser = (req, res) => {
   const { username } = req.body;
   req.session.username = username;
-  console.log('req.session = ', req.session);
   return res.status(200).json({ message: `Welcome ${username}` });
 };
 
