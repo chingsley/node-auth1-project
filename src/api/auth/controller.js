@@ -22,9 +22,17 @@ const loginUser = (req, res) => {
   return res.status(200).json({ message: `Welcome ${username}` });
 };
 
+const logoutUser = async (req, res, next) => {
+  if (req.session) {
+    req.session.destroy();
+  }
+  return res.status(200).json({ message: 'Successfully logged out.' });
+};
+
 const authController = {
   registerUser,
-  loginUser
+  loginUser,
+  logoutUser
 };
 
 export default authController;

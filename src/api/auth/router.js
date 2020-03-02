@@ -10,11 +10,13 @@ const {
 const router = express.Router();
 const {
   registerUser,
-  loginUser
+  loginUser,
+  logoutUser,
 } = authController;
 
 
 router.post('/register', registerUser);
 router.post('/login', verifyUser, loginUser);
+router.delete('/', logoutUser);
 
 export default router;
